@@ -1,3 +1,4 @@
+
 'use strict'
 
 import { app, protocol, BrowserWindow } from 'electron'
@@ -13,14 +14,19 @@ protocol.registerSchemesAsPrivileged([
 async function createWindow() {
   // Create the browser window.
   const win = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1334,
+    height: 830,
+    frame: false,
+    resizable: true,
+    transparent: true,
     webPreferences: {
-      
+      webSecurity: false,
+      enableRemoteModule: true,
       // Use pluginOptions.nodeIntegration, leave this alone
       // See nklayman.github.io/vue-cli-plugin-electron-builder/guide/security.html#node-integration for more info
       nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION,
-      contextIsolation: !process.env.ELECTRON_NODE_INTEGRATION
+      contextIsolation: !process.env.ELECTRON_NODE_INTEGRATION,
+      allowRunningInsecureContent: false
     }
   })
 
