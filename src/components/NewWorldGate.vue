@@ -3,7 +3,7 @@
  * @Description: 
  * @Author: MArio
  * @Date: 2021-10-17 12:21:43
- * @LastEditTime: 2021-10-17 14:57:53
+ * @LastEditTime: 2021-10-17 23:51:46
  * @LastEditors: MArio
 -->
 <template>
@@ -41,7 +41,7 @@
             </svg>
           </div>
         </div>
-        <div class="newWorldShuaXinText">
+        <div class="newWorldShuaXinText" @click="doInit()">
           刷新
         </div>
       </div>
@@ -193,148 +193,24 @@
         </td>
       </table>
     </div>
-    <div class="newWorldShowPictures Neworldscro">
+    <div
+      ref="box"
+      class="newWorldShowPictures Neworldscro"
+      @scroll="handleScroll($event)"
+    >
       <table>
-        <tr>
-          <td>
+        <tr v-for="item in dataCard" :key="item.id">
+          <td v-for="item2 in item" :key="item2.id">
             <div class="newWorldImgCard">
               <div class="newWorldImgCardOnImg">
                 <img
                   class="newWorldImgCardOnImg"
                   style="height:100%;"
-                  src="https://s1.jiligamefun.com/images/2021/10/15/118e1b5e974086488637c99a271d6a7d.jpg"
+                  :src="item2.imgSrc"
                 />
               </div>
               <div class="newWorldImgCardTextCard">
-                <h6>P站官网PIXIV twi：_yukoring</h6>
-              </div>
-            </div>
-          </td>
-          <td>
-            <div class="newWorldImgCard">
-              <div class="newWorldImgCardOnImg">
-                <img
-                  class="newWorldImgCardOnImg"
-                  style="height:100%;"
-                  src="https://s1.jiligamefun.com/images/2021/10/07/ec1e74137c10f565a7baad206384fa70.jpg"
-                />
-              </div>
-              <div class="newWorldImgCardTextCard">
-                <h6>P站官网PIXIV twi：_yukoring</h6>
-              </div>
-            </div>
-          </td>
-          <td>
-            <div class="newWorldImgCard">
-              <div class="newWorldImgCardOnImg">
-                <img
-                  class="newWorldImgCardOnImg"
-                  style="height:100%;"
-                  src="https://s1.jiligamefun.com/images/2021/10/06/b86f794246342ca3c648fa7180ffa885.jpg"
-                />
-              </div>
-              <div class="newWorldImgCardTextCard">
-                <h6>P站官网PIXIV twi：_yukoring</h6>
-              </div>
-            </div>
-          </td>
-          <td>
-            <div class="newWorldImgCard">
-              <div class="newWorldImgCardOnImg">
-                <img
-                  class="newWorldImgCardOnImg"
-                  style="height:100%;"
-                  src="https://s1.jiligamefun.com/images/2021/09/22/129a6adab0f4bc5db42a0846e0ef1250.jpg"
-                />
-              </div>
-              <div class="newWorldImgCardTextCard">
-                <h6>P站官网PIXIV twi：_yukoring</h6>
-              </div>
-            </div>
-          </td>
-          <td>
-            <div class="newWorldImgCard">
-              <div class="newWorldImgCardOnImg">
-                <img
-                  class="newWorldImgCardOnImg"
-                  style="height:100%;"
-                  src="https://s1.jiligamefun.com/images/2021/10/01/5e02ac65bf4593481067f4fab817c774.jpg"
-                />
-              </div>
-              <div class="newWorldImgCardTextCard">
-                <h6>P站官网PIXIV twi：_yukoring</h6>
-              </div>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <div class="newWorldImgCard">
-              <div class="newWorldImgCardOnImg">
-                <img
-                  class="newWorldImgCardOnImg"
-                  style="height:100%;"
-                  src="https://s1.jiligamefun.com/images/2021/09/27/c166d0ac79adb1b073bba109d5de3c85.jpg"
-                />
-              </div>
-              <div class="newWorldImgCardTextCard">
-                <h6>P站官网PIXIV twi：_yukoring</h6>
-              </div>
-            </div>
-          </td>
-          <td>
-            <div class="newWorldImgCard">
-              <div class="newWorldImgCardOnImg">
-                <img
-                  class="newWorldImgCardOnImg"
-                  style="height:100%;"
-                  src="https://s1.jiligamefun.com/images/2021/09/13/0b538c0eef3eb36c66fcb80061200a78.jpg"
-                />
-              </div>
-              <div class="newWorldImgCardTextCard">
-                <h6>P站官网PIXIV twi：_yukoring</h6>
-              </div>
-            </div>
-          </td>
-          <td>
-            <div class="newWorldImgCard">
-              <div class="newWorldImgCardOnImg">
-                <img
-                  class="newWorldImgCardOnImg"
-                  style="height:100%;"
-                  src="https://s1.jiligamefun.com/images/2021/09/14/e424cb9fa824b294888c1846cd87d51e.png"
-                />
-              </div>
-              <div class="newWorldImgCardTextCard">
-                <h6>P站官网PIXIV twi：_yukoring</h6>
-              </div>
-            </div>
-          </td>
-          <td>
-            <div class="newWorldImgCard">
-              <div class="newWorldImgCardOnImg">
-                <img
-                  class="newWorldImgCardOnImg"
-                  style="height:100%;"
-                  src="https://s1.jiligamefun.com/images/2021/09/12/abf587c879f0600602f3c787eb402a33.jpg"
-                />
-              </div>
-              <div class="newWorldImgCardTextCard">
-                <h6>P站官网PIXIV twi：_yukoring</h6>
-              </div>
-            </div>
-          </td>
-          <td>
-            <div class="newWorldImgCard">
-              <div class="newWorldImgCardOnImg">
-                <img
-                  class="newWorldImgCardOnImg"
-                  style="height:100%;"
-                  src="https://www.jiligamefun.com/wp-content/uploads/2021/09/5588761be91be45c038bbb806a8fde96-200x300.jpg"
-                />
-              </div>
-              <div class="newWorldImgCardTextCard">
-                <h6>P站官网PIXIV twi：_yukoring</h6>
+                <h6>{{ item2.name }}</h6>
               </div>
             </div>
           </td>
@@ -345,12 +221,105 @@
 </template>
 
 <script>
+import axios from "axios";
+var cheerio = require("cheerio");
 export default {
   name: "newWorldGate",
   data() {
     return {
       SorttextPross: "NoWorld1",
+      dataCard: [[]],
+      PageIndex: [1, 2, 3, 4, 5],
+      pageNumber: 1,
     };
+  },
+  methods: {
+    doInit() {
+      axios
+        .get("https://www.jiligamefun.com/category/photo")
+        .then((resp) => {
+          var $ = cheerio.load(resp.data);
+          var arr1 = [];
+          $("img.inn-archive__item__thumbnail__img").each(function(i, e) {
+            var pro = {
+              name: $(e).attr("alt"),
+              imgSrc: $(e).attr("src"),
+            };
+            arr1.push(pro);
+          });
+          //把 arr 的一维数组先转成二维的，然后再在 vue 里面渲染
+          this.dataCard = arr1.reduce(
+            (pre, next, idx) => {
+              // reduce 用来便利数组，具体语法就 rtfm 吧
+              const inner = pre[~~(idx / 5)]; // ~~用来取整，inner 是内层数组
+              if (inner !== undefined) {
+                // 判断有没有内层数组
+                inner.push(next); // 如果有就把遍历的值 next push 到内层数组里
+              } else {
+                pre.push([next]); // 没有就新建一个包含 next 的数组，作为内层数组
+              }
+              return pre;
+            },
+            [[]]
+          );
+          console.log(this.dataCard[0]);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    handleScroll(e) {
+      // var _this = this;
+      if (
+        parseInt(e.srcElement.scrollTop) +
+          parseInt(e.srcElement.offsetHeight) >=
+        parseInt(e.srcElement.scrollHeight.toString())
+      ) {
+        if (this.PageIndex[this.pageNumber] != null) {
+          console.log("取到的下一页值" + this.PageIndex[this.pageNumber]);
+          this.pageNumber = this.PageIndex[this.pageNumber];
+         
+          //   //滚动条快到底了，需要加载新数据到dataCard双数组中
+          //   // axios
+          //   // .get(
+          //   //   "https://www.jiligamefun.com/category/photo/page/" + this.PageIndex[this.pageNumber]
+          //   // )
+          //   // .then((resp) => {
+          //   //   var $ = cheerio.load(resp.data);
+          //   //   var arr1 = [];
+          //   //   $("img.inn-archive__item__thumbnail__img").each(function(i, e) {
+          //   //     var pro = {
+          //   //       name: $(e).attr("alt"),
+          //   //       imgSrc: $(e).attr("src"),
+          //   //     };
+          //   //     arr1.push(pro);
+          //   //   });
+          //   //   //把 arr 的一维数组先转成二维的，然后再在 vue 里面渲染
+          //   //   var dataCard = arr1.reduce(
+          //   //     (pre, next, idx) => {
+          //   //       // reduce 用来便利数组，具体语法就 rtfm 吧
+          //   //       const inner = pre[~~(idx / 5)]; // ~~用来取整，inner 是内层数组
+          //   //       if (inner !== undefined) {
+          //   //         // 判断有没有内层数组
+          //   //         inner.push(next); // 如果有就把遍历的值 next push 到内层数组里
+          //   //       } else {
+          //   //         pre.push([next]); // 没有就新建一个包含 next 的数组，作为内层数组
+          //   //       }
+          //   //       return pre;
+          //   //     },
+          //   //     [[]]
+          //   //   );
+          //   //   for (var i = 0; i < dataCard.length; i++) {
+          //   //     _this.dataCard.push(dataCard[i]);
+          //   //   }
+          this.$refs.box.scrollTop = e.srcElement.scrollTop - 200;
+          //   // })
+          //   // .catch((err) => {
+          //   //   console.log(err);
+          //   // });
+        }
+      }
+    },
   },
 };
 </script>
@@ -364,6 +333,9 @@ export default {
   background-color: #fefefe;
   padding-top: 5px;
   color: #7e758e;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .newWorldImgCardOnImg {
   width: 100%;
@@ -391,6 +363,7 @@ export default {
 .newWorldShowPictures {
   width: 100%;
   height: 54%;
+  overflow-y: scroll;
 }
 .newWorldcatalogueYou {
   padding-top: 5px;
